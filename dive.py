@@ -2,6 +2,7 @@
 def get_submarine_position(filename):
     x = 0
     y = 0
+    aim = 0
     with open(filename, 'r') as f:
         for line in f:
             inputs = line.split(' ')
@@ -10,10 +11,11 @@ def get_submarine_position(filename):
 
             if direction == "forward":
                 x += length
+                y += aim *length
             elif direction == "down":
-                y += length
+                aim += length
             elif direction == "up":
-                y -= length
+                aim -= length
 
     return x, y
 
